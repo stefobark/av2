@@ -12,6 +12,7 @@ class Box {
   float boxSize = 10; //give it a size
   ArrayList<PVector> vectors; //here is another ArrayList, this time with Processing's vector type--
   //which is super handy for movement and all things to do with vector math
+  float scaler = 1;
   boolean onOff = false; //here is the variable i use to determine 
   //whether or not the visualization should be displayed
   
@@ -39,7 +40,6 @@ class Box {
       fill(255,255,255,10); //setting the same properties for the fill
       for (PVector p : vectors) {
         pushMatrix();
-        float scaler = sin(frameCount/100.0)*1.5;
         p = PVector.mult(p,scaler);
         translate(p.x, p.y, p.z);
         PVector polar = dawesome.cartesianToPolar(p);
@@ -49,5 +49,21 @@ class Box {
         popMatrix();
       } 
     }
-}
+  }
+  
+  void growScale(){
+    scaler += .011;
+  }
+  
+  void shrinkScale(){
+    scaler -= .011;
+  }
+  
+  void shrinkBox(){
+    boxSize -= .5;
+  }
+  void growBox(){
+    boxSize += .5;
+  }
+  
 }
