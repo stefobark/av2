@@ -17,7 +17,7 @@ void build(){
   //check distance to see if we should draw an edge
   for (int i=0; i<pts.length; i++) {
       for (int j=i+1; j<pts.length; j++) {
-        if (pts[i].dist( pts[j] ) < 100) {
+        if (pts[i].dist( pts[j] ) < 55) {
           skeleton.addEdge(pts[i], pts[j]);
         }
       }
@@ -26,14 +26,14 @@ void build(){
   
   void changePoints(float one, float two){
     for (int i=0; i<pts.length; i++) {
-      pts[i].x = pts[i].x + one + random(-20,20);
-      pts[i].y = pts[i].y + two + random(-20,20);
+      pts[i].x = pts[i].x + one + random(-5,5);
+      pts[i].y = pts[i].y + two + random(-5,5);
     }
    }
   
   void display(float one, float two){
     stroke(0,0,0,1);
-    fill(255,255,255,10);
+    fill(255,255,255,4);
     skeleton.plot(one , two);  // Thickness as parameter
   }
 }
