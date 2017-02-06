@@ -16,7 +16,6 @@ class Box {
   boolean onOff = false; //here is the variable i use to determine 
   //whether or not the visualization should be displayed
   
-  //here is the constructor for our Box object (which is bad name for it
   Box(){
     vectors = dawesome.fibonacciSphereLayout(100,100); //a preset visualization! a sphere of cubes
   }
