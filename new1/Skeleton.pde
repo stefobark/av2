@@ -17,23 +17,23 @@ void build(){
   //check distance to see if we should draw an edge
   for (int i=0; i<pts.length; i++) {
       for (int j=i+1; j<pts.length; j++) {
-        if (pts[i].dist( pts[j] ) < 55) {
+        if (pts[i].dist( pts[j] ) < 10) {
           skeleton.addEdge(pts[i], pts[j]);
         }
       }
     }
   }
   
-  void changePoints(float one, float two){
+  void changePoints(){
     for (int i=0; i<pts.length; i++) {
-      pts[i].x = pts[i].x + one + random(-5,5);
-      pts[i].y = pts[i].y + two + random(-5,5);
+      pts[i].x += + random(-.025,.025);
+      pts[i].y += random(-.025,.025);
     }
    }
   
   void display(float one, float two){
-    stroke(0,0,0,1);
-    fill(255,255,255,4);
-    skeleton.plot(one , two);  // Thickness as parameter
+    stroke(0,0,0,10);
+    fill(255,255,255,25);
+    skeleton.plot(one,two);  // Thickness as parameter
   }
 }
